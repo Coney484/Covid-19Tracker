@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ui.home.HomeFragment">
+    
+    
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_bold"
+            android:textColor="#fff"
+            android:textSize="24dp"
+            android:textAlignment="center"
+            android:layout_marginBottom="24dp"
+            android:text="Coronavirus COVID-19\nGlobal Cases"/>
+
+        <TextView
+            android:id="@+id/tavLabelTotalConfirmed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#fff"
+            style="@style/LabelFontStyle"
+            android:text="Total Confirmed"/>
+
+
+        <TextView
+            android:id="@+id/tavTotalConfirmed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorTotalConfirmed"
+            style="@style/TotalFontStyle"
+            tools:text="187232"/>
+
+        <TextView
+            android:id="@+id/tavLabelTotalDeaths"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorTotalCDeaths"
+            style="@style/LabelFontStyle"
+            android:text="Total Deaths"/>
+
+
+        <TextView
+            android:id="@+id/tavTotalDeaths"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorTotalCDeaths"
+            style="@style/TotalFontStyle"
+            tools:text="45677"/>
+
+        <TextView
+            android:id="@+id/tavLabelTotalRecovered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorTotalRecovered"
+            style="@style/LabelFontStyle"
+            android:text="Total Recovered"/>
+
+
+        <TextView
+            android:id="@+id/tavTotalRecovered"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorTotalRecovered"
+            style="@style/TotalFontStyle"
+            tools:text="78534"/>
+
+        <TextView
+            android:id="@+id/tavLastUpdate"
+            style="@style/LabelFontStyle"
+            android:textColor="#fff"
+            android:textAlignment="center"
+            android:layout_marginTop="20dp"
+            tools:text="Last Updated\n Mon, 6th April 2020 2:05:23 PM"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    
+    <ProgressBar
+        android:id="@+id/progress_circular_home"
+        android:indeterminate="true"
+        android:layout_centerInParent="true"
+        android:indeterminateDrawable="@drawable/progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>
