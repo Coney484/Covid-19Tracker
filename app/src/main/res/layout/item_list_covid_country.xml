@@ -13,11 +13,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content">
 
+            <ImageView
+                android:id="@+id/imgCountryFlag"
+                android:layout_gravity="center_vertical"
+                android:layout_width="55dp"
+                tools:src="@drawable/us"
+                android:layout_height="35dp"/>
+
             <TextView
+                android:layout_marginLeft="10dp"
                 android:id="@+id/tvTotalCases"
                 style="@style/LabelFontStyle"
                 tools:text="78534"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textColor="@color/colorTotalConfirmed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -26,9 +34,9 @@
                 android:id="@+id/tvCountryName"
                 style="@style/LabelFontStyle"
                 tools:text="INDIA"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textColor="#fff"
-                android:layout_marginLeft="16dp"
+                android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             

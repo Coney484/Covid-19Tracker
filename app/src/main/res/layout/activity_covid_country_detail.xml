@@ -9,11 +9,13 @@
     tools:context=".ui.country.CovidCountryDetail">
 
     <LinearLayout
+        android:layout_margin="18dp"
         android:id="@+id/linearLayoutCountryName"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <TextView
+            android:textAlignment="center"
             android:id="@+id/tavDetailCountryName"
             style="@style/TotalFontStyle"
             android:textColor="#fff"

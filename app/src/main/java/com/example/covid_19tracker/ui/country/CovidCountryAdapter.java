@@ -1,13 +1,18 @@
 package com.example.covid_19tracker.ui.country;
 
+import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.covid_19tracker.R;
 
 import java.util.ArrayList;
@@ -15,9 +20,13 @@ import java.util.ArrayList;
 public class CovidCountryAdapter extends RecyclerView.Adapter<CovidCountryAdapter.ViewHolder> {
 
     ArrayList<CovidCountry> covidCountries;
+    private  Context context;
 
-    public CovidCountryAdapter(ArrayList<CovidCountry> covidCountries){
+
+
+    public CovidCountryAdapter(ArrayList<CovidCountry> covidCountries,Context context){
         this.covidCountries = covidCountries;
+        this.context = context;
     }
 
     @NonNull
@@ -35,6 +44,9 @@ public class CovidCountryAdapter extends RecyclerView.Adapter<CovidCountryAdapte
         holder.tvTotalCases.setText((covidCountry.getmCases()));
         holder.tvCountryName.setText(covidCountry.getmCovidCountry());
 
+        //glide
+        Glide.with(context).load(covidCountry.getmFlag()).apply(new RequestOptions().override(240,160)).into(holder.imgCountryFlag);
+
     }
 
     @Override
@@ -45,12 +57,14 @@ public class CovidCountryAdapter extends RecyclerView.Adapter<CovidCountryAdapte
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvTotalCases, tvCountryName;
+        ImageView imgCountryFlag;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             tvTotalCases = itemView.findViewById(R.id.tvTotalCases);
             tvCountryName = itemView.findViewById(R.id.tvCountryName);
+            imgCountryFlag = itemView.findViewById(R.id.imgCountryFlag);
         }
     }
 }
