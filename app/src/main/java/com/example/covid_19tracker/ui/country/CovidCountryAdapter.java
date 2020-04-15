@@ -5,6 +5,8 @@ import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,16 +18,17 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.covid_19tracker.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CovidCountryAdapter extends RecyclerView.Adapter<CovidCountryAdapter.ViewHolder> {
 
-    ArrayList<CovidCountry> covidCountries;
+   ArrayList<CovidCountry> covidCountries;
     private  Context context;
 
 
 
     public CovidCountryAdapter(ArrayList<CovidCountry> covidCountries,Context context){
-        this.covidCountries = covidCountries;
+        this.covidCountries =  covidCountries;
         this.context = context;
     }
 
@@ -67,4 +70,5 @@ public class CovidCountryAdapter extends RecyclerView.Adapter<CovidCountryAdapte
             imgCountryFlag = itemView.findViewById(R.id.imgCountryFlag);
         }
     }
+
 }

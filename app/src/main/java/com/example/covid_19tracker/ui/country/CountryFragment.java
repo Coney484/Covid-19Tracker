@@ -31,6 +31,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 public class CountryFragment extends Fragment {
@@ -41,7 +42,7 @@ public class CountryFragment extends Fragment {
     private static final String TAG = CountryFragment.class.getSimpleName();
 
 
-    private ArrayList<CovidCountry> covidCountries;
+   ArrayList<CovidCountry> covidCountries;
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -58,7 +59,6 @@ public class CountryFragment extends Fragment {
         dividerItemDecoration.setDrawable(Objects.requireNonNull(ContextCompat.getDrawable(Objects.requireNonNull(getContext()), R.drawable.line_divider)));
         rvCovidCountry.addItemDecoration(dividerItemDecoration);
 
-
         //call Volley method
 
         getDataFromServet();
@@ -66,7 +66,7 @@ public class CountryFragment extends Fragment {
     }
 
     private void showRecyclerView() {
-        CovidCountryAdapter covidCountryAdapter = new CovidCountryAdapter(covidCountries,getActivity());
+         CovidCountryAdapter  covidCountryAdapter = new CovidCountryAdapter(covidCountries,getActivity());
         rvCovidCountry.setAdapter(covidCountryAdapter);
         ItemClickSupport.addTo(rvCovidCountry).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
