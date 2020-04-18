@@ -46,8 +46,10 @@ public class HomeFragment extends Fragment {
         tvTotalDeaths =  root.findViewById(R.id.tavTotalDeaths);
         tvTotalRecovered = root.findViewById(R.id.tavTotalRecovered);
         tvLastUpdated = root.findViewById(R.id.tavLastUpdate);
-
         progressBar = root.findViewById(R.id.progress_circular_home);
+
+        //Action Bar Title
+        getActivity().setTitle("Globally");
 
 
         //called Volley

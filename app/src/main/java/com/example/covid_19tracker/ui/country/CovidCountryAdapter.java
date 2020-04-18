@@ -20,16 +20,19 @@ import com.example.covid_19tracker.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CovidCountryAdapter extends RecyclerView.Adapter<CovidCountryAdapter.ViewHolder> {
+public class CovidCountryAdapter extends RecyclerView.Adapter<CovidCountryAdapter.ViewHolder> implements  Filterable {
 
-   ArrayList<CovidCountry> covidCountries;
-    private  Context context;
+   private List<CovidCountry> covidCountries;
+   private List<CovidCountry> covidCountriesFull;
+
+   private  Context context;
 
 
 
-    public CovidCountryAdapter(ArrayList<CovidCountry> covidCountries,Context context){
+    public CovidCountryAdapter(List<CovidCountry> covidCountries,Context context){
         this.covidCountries =  covidCountries;
         this.context = context;
+        covidCountriesFull = new ArrayList<>(covidCountries);
     }
 
     @NonNull
@@ -71,4 +74,41 @@ public class CovidCountryAdapter extends RecyclerView.Adapter<CovidCountryAdapte
         }
     }
 
+    @Override
+    public Filter getFilter() {
+        return covidCountriesFilter;
+    }
+
+    private  Filter covidCountriesFilter = new Filter() {
+        @Override
+        protected FilterResults performFiltering(CharSequence constraint) {
+            List<CovidCountry> filteredCovidCountry = new ArrayList<>();
+            if (constraint==null||constraint.length()==0)
+            {
+                filteredCovidCountry.addAll(covidCountriesFull);
+            }
+            else
+            {
+                String filterPattern = constraint.toString().toLowerCase().trim();
+                for(CovidCountry itemCovidCountry:covidCountriesFull)
+                {
+                    if (itemCovidCountry.getmCovidCountry().toLowerCase().contains(filterPattern))
+                    {
+                        filteredCovidCountry.add(itemCovidCountry);
+                    }
+                }
+            }
+
+            FilterResults results = new FilterResults();
+            results.values = filteredCovidCountry;
+            return results;
+        }
+
+        @Override
+        protected void publishResults(CharSequence constraint, FilterResults results) {
+            covidCountries.clear();
+            covidCountries.addAll((List) results.values);
+            notifyDataSetChanged();
+        }
+    };
 }
